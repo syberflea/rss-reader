@@ -35,7 +35,11 @@ class Article(models.Model):
     )
     body = models.TextField()
     link = models.URLField()
-    image = models.URLField()
+    image = models.URLField(
+        'Иконка',
+        null=True,
+        blank=True
+    )
     guid = models.CharField(
         max_length=200,
         blank=True,
