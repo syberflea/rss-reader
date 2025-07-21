@@ -16,7 +16,7 @@ def save_new_articles(feed):
         feed: requires a feedparser object
     """
     channel_title = feed.channel.title
-    channel_image = feed.channel.image["href"]
+    channel_image = feed.channel.get("image", None)
 
     for item in feed.entries:
         __guid = item.get("guid", item.link)
@@ -42,7 +42,13 @@ def fetch_nasa_articles():
     save_new_articles(_feed)
 
 
+def fetch_4pda_articles():
+    _feed = feedparser.parse("https://4pda.to/feed/")
+    save_new_articles(_feed)
+
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
         fetch_elementy_articles()
         fetch_nasa_articles()
+        fetch_4pda_articles()
