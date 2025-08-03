@@ -4,7 +4,7 @@ from .models import Article
 
 
 class HomePageView(ListView):
-    template_name = "homepage.html"
+    template_name = "viewer/index.html"
     model = Article
 
     def get_context_data(self, **kwargs):
