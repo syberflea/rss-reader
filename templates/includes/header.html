@@ -13,44 +13,31 @@
       Внутри тега {% with %} переменная view_name - 
       это синоним для request.resolver_match.view_name
       {% endcomment %}
-      {% with request.resolver_match.view_name as view_name %}
       <ul class="nav nav-pills">
         <li class="nav-item"> 
-          <a class="nav-link 
-          {% if view_name  == 'about:author' %}
-          active
-          {% endif %}" href="{% url 'about:author' %}">Об авторе</a>
+           Об авторе
         </li>
         <li class="nav-item">
-          <a class="nav-link
-          {% if view_name  == 'about:tech' %}
-          active
-          {% endif %}" href="{% url 'about:tech' %}">Технологии</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item"> 
-          <a class="nav-link {% if view_name  == 'posts:post_create' %}
-          active
-          {% endif %}" href="{% url 'posts:post_create'%}">Новая запись</a>
+          Технологии
         </li>
         <li class="nav-item"> 
-          <a class="nav-link link-light" href="{% url 'users:password_change_form'%}">Изменить пароль</a>
+          <a class="nav-link">Новая запись</a>
         </li>
         <li class="nav-item"> 
-          <a class="nav-link link-light" href="{% url 'users:logout'%}">Выйти</a>
+          <a class="nav-link link-light">Изменить пароль</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link link-light">Выйти</a>
         </li>
         <li>
-          Пользователь: {{ user.username }}
-        </li>
-        {% else %}
-        <li class="nav-item"> 
-          <a class="nav-link link-light" href="{% url 'users:login'%}">Войти</a>
+          Пользователь
         </li>
         <li class="nav-item"> 
-          <a class="nav-link link-light" href="{% url 'users:signup'%}">Регистрация</a>
+          <a class="nav-link link-light">Войти</a>
         </li>
-        {% endif %}
+        <li class="nav-item"> 
+          <a class="nav-link link-light">Регистрация</a>
+        </li>
       </ul>
-      {% endwith %} 
     </div>
   </nav>
