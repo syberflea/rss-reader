@@ -19,14 +19,10 @@ class ArticleTests(TestCase):
     def test_article_content(self):
         self.assertEqual(self.article.body, "Look mom, I'm road kill!")
         self.assertEqual(self.article.link, "https://acme.show.com")
-        self.assertEqual(
-            self.article.guid, "de194720-7b4c-49e2-a05f-432436d3fetr"
-        )
+        self.assertEqual(self.article.guid, "de194720-7b4c-49e2-a05f-432436d3fetr")
 
     def test_article_str_representation(self):
-        self.assertEqual(
-            str(self.article), "My Awesome article"
-        )
+        self.assertEqual(str(self.article), "My Awesome article")
 
     def test_home_page_status_code(self):
         response = self.client.get("/")

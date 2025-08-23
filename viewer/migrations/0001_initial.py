@@ -5,41 +5,69 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Source',
+            name="Source",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('link', models.URLField(blank=True, null=True)),
-                ('title', models.CharField(max_length=200, verbose_name='Заголовок')),
-                ('subtitle', models.CharField(max_length=200, verbose_name='Подзаголовок')),
-                ('feed', models.TextField()),
-                ('pub_date', models.DateTimeField(verbose_name='Дата публикации')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("link", models.URLField(blank=True, null=True)),
+                ("title", models.CharField(max_length=200, verbose_name="Заголовок")),
+                (
+                    "subtitle",
+                    models.CharField(max_length=200, verbose_name="Подзаголовок"),
+                ),
+                ("feed", models.TextField()),
+                ("pub_date", models.DateTimeField(verbose_name="Дата публикации")),
             ],
         ),
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200, verbose_name='Заголовок')),
-                ('body', models.TextField()),
-                ('link', models.URLField()),
-                ('image', models.URLField()),
-                ('guid', models.CharField(blank=True, max_length=200, null=True)),
-                ('unread', models.BooleanField(default=True)),
-                ('pub_date', models.DateTimeField()),
-                ('source', models.ForeignKey(blank=True, help_text='Выберите источник', null=True, on_delete=django.db.models.deletion.CASCADE, related_name='articles', to='viewer.source', verbose_name='Источник')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200, verbose_name="Заголовок")),
+                ("body", models.TextField()),
+                ("link", models.URLField()),
+                ("image", models.URLField()),
+                ("guid", models.CharField(blank=True, max_length=200, null=True)),
+                ("unread", models.BooleanField(default=True)),
+                ("pub_date", models.DateTimeField()),
+                (
+                    "source",
+                    models.ForeignKey(
+                        blank=True,
+                        help_text="Выберите источник",
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="articles",
+                        to="viewer.source",
+                        verbose_name="Источник",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Article',
-                'verbose_name_plural': 'Articles',
-                'ordering': ['-pub_date'],
+                "verbose_name": "Article",
+                "verbose_name_plural": "Articles",
+                "ordering": ["-pub_date"],
             },
         ),
     ]
