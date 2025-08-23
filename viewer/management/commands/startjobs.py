@@ -37,7 +37,7 @@ def save_new_articles(feed):
                 link=item.link,
                 image=channel_image,
                 guid=__guid,
-                pub_date=parser.parse(item.published)
+                pub_date=parser.parse(item.published),
             )
             article.save()
 
