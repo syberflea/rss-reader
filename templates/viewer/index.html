@@ -2,7 +2,6 @@
 {% block title%}Последние обновления на сайте{% endblock title %}
 {% block content %}
 <div class="container">
-    <h3>Последние обновления на сайте</h3>
     <!-- Начало глобального div.row с двумя колонками: 
        в левой колонке — источники, в правой — блоки с текстом -->
     <div class="row">
@@ -15,9 +14,9 @@
                 <li class="list-group-item">gsmarena</li>
             </ul>
         </aside>
+        <!-- Конец левой колонки сайта -->
         <!-- Начало правой (широкой) колонки сайта -->
         <section class="col-12 col-md-9">
-            <!-- Конец левой колонки сайта -->
             {% for article in articles %}
             <article>
                 <h5>
